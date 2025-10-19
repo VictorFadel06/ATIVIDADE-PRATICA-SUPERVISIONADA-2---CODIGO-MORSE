@@ -7,7 +7,7 @@ public class ArvoreBinariaMorse {
         raiz = new Node("");
     }
 
-    // Inserir um caractere na árvore seguindo o código Morse ('.' = esquerda, '-' = direita)
+    // ('.' = esquerda, '-' = direita)
     public void inserir(String codigo, String caractere) {
         if (raiz == null) {
             inicializar();
@@ -27,14 +27,14 @@ public class ArvoreBinariaMorse {
                 }
                 atual = atual.direita;
             } else {
-                // Ignora outros símbolos (por segurança)
+                // Ignora 
             }
             i = i + 1;
         }
         atual.caractere = caractere;
     }
 
-    // Busca pelo caractere a partir do código Morse
+    // Busca pelo caractere 
     public String buscar(String codigo) {
         if (raiz == null) {
             return "";
@@ -48,7 +48,7 @@ public class ArvoreBinariaMorse {
             } else if (s == '-') {
                 atual = atual.direita;
             } else {
-                // caractere inválido no código
+                // caractere inválido 
                 return "";
             }
             i = i + 1;
@@ -60,7 +60,7 @@ public class ArvoreBinariaMorse {
         return atual.caractere;
     }
 
-    // Remove um caractere definindo-o como vazio (sem destruir estrutura)
+    // Remove um caractere e o define como vazio
     public void remover(String codigo) {
         if (raiz == null) return;
         Node atual = raiz;
@@ -72,16 +72,16 @@ public class ArvoreBinariaMorse {
             } else if (s == '-') {
                 atual = atual.direita;
             } else {
-                return; // código inválido
+                return; 
             }
             i = i + 1;
             if (atual == null) return;
         }
-        // marca como vazio
+        
         atual.caractere = "";
     }
 
-    // Exibe a árvore de forma hierárquica (pré-ordem) com indentação
+    // Exibe a árvore(pré-ordem) 
     public void exibir() {
         exibirRec(raiz, 0, "");
     }
@@ -104,8 +104,7 @@ public class ArvoreBinariaMorse {
         exibirRec(nodo.direita, nivel + 1, caminho + "-");
     }
 
-    // Traduz uma mensagem em Morse (os códigos separados por espaço).
-    // Para separar palavras, utilize "/" no texto Morse (ex: "... --- ... / .-")
+    
     public String traduzirMensagem(String mensagem) {
         String resultado = "";
         String token = "";
@@ -127,7 +126,7 @@ public class ArvoreBinariaMorse {
                 }
             } else if (c == '/') {
                 // separador de palavra
-                // primeiro, se houver token pendente, traduzir
+                
                 if (token.length() > 0) {
                     String r = buscar(token);
                     if (r.equals("")) {
@@ -157,10 +156,8 @@ public class ArvoreBinariaMorse {
         return resultado;
     }
 
-    // Insere todas as letras A-Z e números 0-9 chamando inserir manualmente,
-    // sem usar arrays/listas (conforme restrição).
+    
     public void inserirTodos() {
-        // Letras A-Z (mapeamento Morse padrão)
         inserir(".-", "A");
         inserir("-...", "B");
         inserir("-.-.", "C");
@@ -188,7 +185,7 @@ public class ArvoreBinariaMorse {
         inserir("-.--", "Y");
         inserir("--..", "Z");
 
-        // Números 0-9
+      
         inserir("-----", "0");
         inserir(".----", "1");
         inserir("..---", "2");
@@ -201,7 +198,7 @@ public class ArvoreBinariaMorse {
         inserir("----.", "9");
     }
 
-    // Método simples para inserir via terminal (sem uso de estruturas especiais)
+    
     public void inserirViaTerminal() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o código Morse (ex: ... ):");
@@ -211,7 +208,7 @@ public class ArvoreBinariaMorse {
         inserir(codigo, c);
     }
 
-    // Busca por código e imprime resultado simples
+    
     public void buscarViaTerminal() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o código Morse para buscar:");
@@ -224,7 +221,7 @@ public class ArvoreBinariaMorse {
         }
     }
 
-    // Remove via terminal
+    
     public void removerViaTerminal() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o código Morse para remover:");
@@ -233,7 +230,7 @@ public class ArvoreBinariaMorse {
         System.out.println("Removido (se existia) o código: " + codigo);
     }
 
-    // Traduz via terminal
+  
     public void traduzirViaTerminal() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite a mensagem em Morse (sep. por espaços; separa palavras com '/'): ");

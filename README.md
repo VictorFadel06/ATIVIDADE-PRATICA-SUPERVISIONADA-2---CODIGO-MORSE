@@ -48,4 +48,4 @@ java Main
 ---
 
 **Autor:**  
-Projeto gerado conforme as regras acadêmicas solicitadas.
+- Victor Valerio Fadel

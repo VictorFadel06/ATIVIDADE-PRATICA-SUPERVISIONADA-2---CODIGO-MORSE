@@ -20,7 +20,6 @@ public class Main {
             System.out.print("Escolha: ");
 
             String linha = sc.nextLine();
-            // evitar NumberFormatException: convertemos manualmente sem try-catch usando lógica simples
             if (linha.length() == 0) {
                 opcao = -1;
             } else {
@@ -29,7 +28,6 @@ public class Main {
                 if (ch >= '0' && ch <= '9') {
                     opcao = ch - '0';
                 } else {
-                    // se não for número, seta inválido
                     opcao = -1;
                 }
             }
