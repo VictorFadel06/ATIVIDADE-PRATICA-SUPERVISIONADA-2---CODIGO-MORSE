@@ -43,7 +43,6 @@ java Main
 ## Observações
 - Para separar palavras no Morse, use `/` (barra).  
 - Remover um nó não apaga seus filhos, apenas limpa o caractere.  
-- O projeto segue rigorosamente as restrições do enunciado.
 
 ---
 
